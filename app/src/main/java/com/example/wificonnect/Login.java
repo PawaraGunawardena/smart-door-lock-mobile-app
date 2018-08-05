@@ -1,5 +1,6 @@
 package com.example.wificonnect;
 
+import android.app.AlertDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -55,24 +56,38 @@ public class Login extends AppCompatActivity {
 //        userDatabaseConnectvity = new UserData(this);
         user = userDatabaseConnectvity.getUser(user_name);
 
-        if(user.getPassword().equals(password)){
-            SharedPreferences sharedPreferences = getSharedPreferences("userInfo", Context.MODE_PRIVATE);
-            SharedPreferences.Editor editor = sharedPreferences.edit();
-            editor.putString("username_shared", user_name);
-            editor.putString("password_shared", password);
-            editor.apply();
+        if(user == null){
+            AlertDialog.Builder builder = new AlertDialog.Builder(Login.this);
+            builder.setMessage("Given user credentials are invalid")
+                    .setNegativeButton("Retry", null)
+                    .create()
+                    .show();
+        }else {
+
+            if (user.getPassword().equals(password)) {
+                SharedPreferences sharedPreferences = getSharedPreferences("userInfo", Context.MODE_PRIVATE);
+                SharedPreferences.Editor editor = sharedPreferences.edit();
+                editor.putString("username_shared", user_name);
+                editor.putString("password_shared", password);
+                editor.apply();
 
 
-            Intent home = new Intent(this, Home.class);
-            home.putExtra("UserAccount", user);
-            startActivity(home);
-            finish();
-        }
-        else{
-            System.out.println("Wrong user");
-            System.out.println(user_name+" "+password);
+                Intent home = new Intent(this, Home.class);
+                home.putExtra("UserAccount", user);
+                startActivity(home);
+                finish();
+            } else {
+                System.out.println("Wrong user");
+                System.out.println(user_name + " " + password);
 
-            System.out.println(user.getPassword()+" "+user.getUsername());
+                System.out.println(user.getPassword() + " " + user.getUsername());
+
+                AlertDialog.Builder builder = new AlertDialog.Builder(Login.this);
+                builder.setMessage("Given user credentials are invalid")
+                        .setNegativeButton("Retry", null)
+                        .create()
+                        .show();
+            }
         }
 
     }

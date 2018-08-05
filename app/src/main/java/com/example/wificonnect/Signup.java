@@ -1,5 +1,6 @@
 package com.example.wificonnect;
 
+import android.app.AlertDialog;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -37,12 +38,28 @@ public class Signup extends AppCompatActivity {
         user_name = username_edittext.getText().toString();
         password = password_edittext.getText().toString();
 
-        user = new User(user_name, password);
-        userDatabaseConnectvity = new UserData(this);
-        userDatabaseConnectvity.addUser(user);
+        if (user_name.length()< 6) {
+            AlertDialog.Builder builder = new AlertDialog.Builder(Signup.this);
+            builder.setMessage("Username should be longer than 6 characters")
+                    .setNegativeButton("Retry", null)
+                    .create()
+                    .show();
+        }else if(password.length()> 6){
+            AlertDialog.Builder builder = new AlertDialog.Builder(Signup.this);
+            builder.setMessage("Password should be longer than 6 characters")
+                    .setNegativeButton("Retry", null)
+                    .create()
+                    .show();
 
-        Intent login = new Intent(this, Login.class);
-        startActivity(login);
-        finish();
+        }else{
+            user = new User(user_name, password);
+            userDatabaseConnectvity = new UserData(this);
+            userDatabaseConnectvity.addUser(user);
+
+            Intent login = new Intent(this, Login.class);
+            startActivity(login);
+            finish();
+        }
+
     }
 }
