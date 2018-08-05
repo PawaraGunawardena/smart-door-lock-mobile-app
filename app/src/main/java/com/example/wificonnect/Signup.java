@@ -44,7 +44,7 @@ public class Signup extends AppCompatActivity {
                     .setNegativeButton("Retry", null)
                     .create()
                     .show();
-        }else if(password.length()> 6){
+        }else if(password.length()< 6){
             AlertDialog.Builder builder = new AlertDialog.Builder(Signup.this);
             builder.setMessage("Password should be longer than 6 characters")
                     .setNegativeButton("Retry", null)
