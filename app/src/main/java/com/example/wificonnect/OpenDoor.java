@@ -137,10 +137,11 @@ String door_password_entered;
 
             if(selected_door.getDoor_password().equals(door_password_entered)){
                 url_door_lock = "http://192.168.4.1/lock/auth";
-
+                Toast.makeText(getApplicationContext(),"Request send to Open the Door",Toast.LENGTH_LONG).show();
             }
             else{
                url_door_lock = "http://192.168.4.1/lock/intruder";
+                Toast.makeText(getApplicationContext(),"Warning: Unprivileged Attempt to Open the Door",Toast.LENGTH_LONG).show();
             }
             request_sending(url_door_lock);
 
@@ -165,9 +166,11 @@ String door_password_entered;
 
             if(selected_door.getDoor_password().equals(door_password_entered)){
                 url_door_lock = "http://192.168.4.1/lock/lock";
+                Toast.makeText(getApplicationContext(),"Request Send to Lock the Door",Toast.LENGTH_LONG).show();
             }
             else{
                 url_door_lock = "http://192.168.4.1/lock/invalid";
+                Toast.makeText(getApplicationContext(),"Invalid Credentials for Lock the Door",Toast.LENGTH_LONG).show();
             }
             request_sending(url_door_lock);
 
@@ -220,14 +223,14 @@ String door_password_entered;
                 new StringRequest(Request.Method.GET, url_door_lock, new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
-                        Toast.makeText(getApplicationContext(),response.toString(),Toast.LENGTH_LONG).show();
+
 
                     }
                 }, new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError error) {
                         System.out.println("Response Error");
-                        Toast.makeText(getApplicationContext(),error.toString(),Toast.LENGTH_LONG).show();
+
                     }
                 }
                 );
