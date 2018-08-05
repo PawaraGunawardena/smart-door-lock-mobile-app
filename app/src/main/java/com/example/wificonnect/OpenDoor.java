@@ -11,6 +11,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
@@ -66,6 +67,7 @@ String door_password_entered;
                 public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                     selected_door_name = adapterView.getItemAtPosition(i).toString();
                     System.out.println(selected_door_name + " 1111111111111");
+                    clicked__connect_door(view);
                 }
 
                 @Override
@@ -129,17 +131,16 @@ String door_password_entered;
         }
         System.out.println(selected_door.getSsid() + " 22 " + " 1111111111111");
         try {
-            manageWifi = new ManageWifi(this);
-            manageWifi.connectToDoor(selected_door.getSsid(), selected_door.getWifi_password());
 
             editText_door_password = findViewById(R.id.editText_door_password);
             door_password_entered = editText_door_password.getText().toString();
 
             if(selected_door.getDoor_password().equals(door_password_entered)){
                 url_door_lock = "http://192.168.4.1/lock/auth";
+
             }
             else{
-                url_door_lock = "http://192.168.4.1/lock/intruder";
+               url_door_lock = "http://192.168.4.1/lock/intruder";
             }
             request_sending(url_door_lock);
 
@@ -158,8 +159,6 @@ String door_password_entered;
         }
 
         try {
-            manageWifi = new ManageWifi(this);
-            manageWifi.connectToDoor(selected_door.getSsid(), selected_door.getWifi_password());
 
             editText_door_password = findViewById(R.id.editText_door_password);
             door_password_entered = editText_door_password.getText().toString();
@@ -218,31 +217,17 @@ String door_password_entered;
         RequestQueue queue = Volley.newRequestQueue(this);
 
         StringRequest stringRequest =
-                new StringRequest(Request.Method.POST, url_door_lock, new Response.Listener<String>() {
+                new StringRequest(Request.Method.GET, url_door_lock, new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
-                        JSONObject jsonObject = null;
-                        try {
-                            jsonObject = new JSONObject(response);
-                        } catch (Exception e) {
-                            System.out.println(e.getMessage());
-                        }
-                        String Response = null;
-                        try {
-                            Response = jsonObject.getString("message");
-                        } catch (JSONException e) {
-                            e.printStackTrace();
-                        }
-                        if (Response.equals("success")) {
-                            System.out.println("Response Success");
-                        } else {
-                            System.out.println("Response Error");
-                        }
+                        Toast.makeText(getApplicationContext(),response.toString(),Toast.LENGTH_LONG).show();
+
                     }
                 }, new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError error) {
                         System.out.println("Response Error");
+                        Toast.makeText(getApplicationContext(),error.toString(),Toast.LENGTH_LONG).show();
                     }
                 }
                 );

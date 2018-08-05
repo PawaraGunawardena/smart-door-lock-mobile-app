@@ -64,14 +64,6 @@
             android:onClick="clicked_off_wifi" />
 
         <Button
-            android:id="@+id/btn_connect_with_door"
-            android:layout_marginTop="10dp"
-            android:layout_width="match_parent"
-            android:text="Connect Selected Door"
-            android:layout_height="wrap_content"
-            android:onClick="clicked__connect_door" />
-
-        <Button
             android:id="@+id/btn_open_door_od"
             android:layout_marginTop="10dp"
             android:layout_width="match_parent"
