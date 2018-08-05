@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Smart Door Lock</string>
+
+    <string name="action_settings">Logout</string>
+</resources>

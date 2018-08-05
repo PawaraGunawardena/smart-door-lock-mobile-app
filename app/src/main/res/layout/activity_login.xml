@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Login"
+    android:background="#558fed">
+
+    <include
+        layout = "@layout/app_bar"
+        android:id="@+id/app_bar">
+
+    </include>
+    <LinearLayout
+        android:paddingTop="60dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="2dp"
+            android:textSize="24dp"
+            android:text="LOGIN PAGE"
+            android:textColor="#fff"/>
+
+        <EditText
+            android:id="@+id/editText_username_login"
+            android:textColor="#fff"
+            android:textColorHint="#fff"
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:hint= "Username"
+            android:inputType="textPersonName"      />
+        <EditText
+            android:id="@+id/editText_password_login"
+            android:textColor="#fff"
+            android:textColorHint="#fff"
+
+            android:layout_marginTop="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:hint="Password"
+            android:inputType="textPassword"
+            />
+
+        <Button
+            android:id="@+id/button_login_login"
+            android:layout_marginTop="50dp"
+            android:layout_width="match_parent"
+            android:text="Login"
+            android:layout_height="wrap_content"
+            android:onClick="clicked_login_login"/>
+
+        <Button
+            android:id="@+id/button_signup_login"
+            android:layout_marginTop="50dp"
+            android:layout_width="match_parent"
+            android:text="Signup"
+            android:layout_height="wrap_content"
+            android:onClick="clicked_create_account_login"/>
+    </LinearLayout>
+
+</android.support.constraint.ConstraintLayout>

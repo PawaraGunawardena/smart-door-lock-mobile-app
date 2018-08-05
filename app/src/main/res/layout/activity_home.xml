@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Home"
+    android:background="#558fed">
+
+    <include
+        layout = "@layout/app_bar"
+        android:id="@+id/app_bar">
+
+    </include>
+
+    <LinearLayout
+        android:paddingTop="60dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:gravity="center_horizontal"
+        android:layout_marginTop="2dp"
+        android:textSize="24dp"
+        android:text="HOME"
+        android:textColor="#fff"/>
+
+
+
+
+    <Button
+        android:id="@+id/button_add_door"
+        android:layout_marginTop="50dp"
+        android:layout_width="match_parent"
+        android:text="Add Door"
+        android:layout_height="wrap_content"
+        android:onClick="clicked_add_door_home"/>
+
+    <Button
+        android:id="@+id/button_open_door"
+        android:layout_marginTop="50dp"
+        android:layout_width="match_parent"
+        android:text="My Doors"
+        android:layout_height="wrap_content"
+        android:onClick="clicked_open_door_home"/>
+    </LinearLayout>
+
+</android.support.constraint.ConstraintLayout>

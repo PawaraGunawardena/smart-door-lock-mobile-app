@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".OpenDoor"
+    android:background="#558fed">
+
+    <include
+        layout = "@layout/app_bar"
+        android:id="@+id/app_bar">
+
+    </include>
+
+    <LinearLayout
+        android:paddingTop="60dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/openDoor_textview"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="2dp"
+            android:gravity="center_horizontal"
+            android:textSize="24dp"
+            android:text="OPEN DOOR"
+            android:textColor="#fff"/>
+
+        <Spinner
+        android:id="@+id/spinner_open_door"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+        <EditText
+            android:id="@+id/editText_door_password"
+            android:textColor="#fff"
+            android:textColorHint="#fff"
+            android:layout_marginTop="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:hint= "Door Password"
+            android:inputType="textPassword"      />
+
+        <Button
+            android:id="@+id/btn_on_wifi"
+            android:layout_marginTop="10dp"
+            android:layout_width="match_parent"
+            android:text="Turn On Mobile Wifi"
+            android:layout_height="wrap_content"
+            android:onClick="clicked_on_wifi" />
+
+        <Button
+            android:id="@+id/btn_off_wifi"
+            android:layout_marginTop="10dp"
+            android:layout_width="match_parent"
+            android:text="Turn Off Mobile Wifi"
+            android:layout_height="wrap_content"
+            android:onClick="clicked_off_wifi" />
+
+        <Button
+            android:id="@+id/btn_connect_with_door"
+            android:layout_marginTop="10dp"
+            android:layout_width="match_parent"
+            android:text="Connect Selected Door"
+            android:layout_height="wrap_content"
+            android:onClick="clicked__connect_door" />
+
+        <Button
+            android:id="@+id/btn_open_door_od"
+            android:layout_marginTop="10dp"
+            android:layout_width="match_parent"
+            android:text="Open Door"
+            android:layout_height="wrap_content"
+            android:onClick="clicked_open_door_od"/>
+
+        <Button
+            android:id="@+id/btn_close_door_od"
+            android:layout_marginTop="10dp"
+            android:layout_width="match_parent"
+            android:text="Close Door"
+            android:layout_height="wrap_content"
+            android:onClick="clicked_close_door_od" />
+
+    </LinearLayout>
+
+</android.support.constraint.ConstraintLayout>
