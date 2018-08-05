@@ -52,7 +52,14 @@ public class AddDoor extends AppCompatActivity {
                         .show();
             }else if(user_password.length() < 6){
                 AlertDialog.Builder builder = new AlertDialog.Builder(AddDoor.this);
-                builder.setMessage("Wifi Password should be longer than 6 characters")
+                builder.setMessage("User Password should be longer than 6 characters")
+                        .setNegativeButton("Retry", null)
+                        .create()
+                        .show();
+
+            }else if(ssid.length() == 0){
+                AlertDialog.Builder builder = new AlertDialog.Builder(AddDoor.this);
+                builder.setMessage("Wifi SSID cannot be empty")
                         .setNegativeButton("Retry", null)
                         .create()
                         .show();
